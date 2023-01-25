@@ -1,0 +1,14 @@
+App :
+-   text: Login
+    shortcut : L
+    enabled : False
+    toolbar: True
+    icon: gauth.png 
+-   text: Logout
+    shortcut : O
+    enabled : False
+Edit :
+-   text: Data 1
+    enabled : True
+-   text: Data 2
+    enabled : False

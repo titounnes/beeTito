@@ -1,0 +1,11 @@
+title: Data tabel
+form: 
+  inputs:
+    - id: input_1
+      type: text
+  buttons: 
+    - id: next_page
+      caption: next
+
+header : ["foo", 'bar']
+paginate: data_table_1

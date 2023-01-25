@@ -1,0 +1,18 @@
+title: Form Login
+inputs:
+  - id: username
+    label: Username
+    type: text
+    placeholder: type your username 
+  - id: password
+    type: password
+    label: Password
+    placehoder: type your password 
+buttons:
+  - id: login_clasic
+    caption: Login
+    enabled: True
+  - id: login_google_oauth
+    caption: Login with google 
+    enabled: True
+close: True
