@@ -1,4 +1,4 @@
-# beware-modules
+# beeTito (a module for beware-toga)
 ---
 ### name        : beeTito
 ### Description : module for beeware-Toga
@@ -139,3 +139,5 @@ buttons:
       
   ```
 
+## Tutorial
+  Playlist video tutorial can accessed in [Playlist](https://www.youtube.com/playlist?list=PLB5fg4ce35kM_U2z-0Lj7XFuwt-_7IFwW) 
