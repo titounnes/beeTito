@@ -65,7 +65,12 @@ Edit :
         self.main_window.show()
 ```
         
-    
+#### Change Status Menu
+For change status menu from disabled to enabled vise versa, use method toggle
+```
+  self.menu.toggle(['Login','Data 1'])
+```
+
 #### Create Form
 - open app_name/app.py
 - import package Form, for example app_name is myApp
@@ -133,3 +138,4 @@ buttons:
       self.form.generate('form/login')
       
   ```
+
