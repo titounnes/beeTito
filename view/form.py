@@ -6,10 +6,10 @@ screen = get_monitors()[0]
 from ..fileSystem.yaml import Yaml
     
 class Form(object):
-    def __init__(self, app, container, popup=False):
+    def __init__(self, app, container=None):
         self.app = app
-        self.popup = popup
-        if popup:
+        if container is None:
+            self.popup = True
             height = 480
             width = 640
             self.container = toga.Box(style=Pack(direction=COLUMN))
@@ -22,7 +22,9 @@ class Form(object):
             self.app.modal_window.on_close = self.window_close
 
         else:
+            self.popup = False
             self.container = container
+
         self.path_form = os.path.dirname(self.app.config[0])+self.app.config[1]
          
 
@@ -41,7 +43,6 @@ class Form(object):
         
         
     async def window_close(self):
-        print('aaa')
         if await self.app.main_window.confirm_dialog('Confirmation', 'Are you sure?'):            
             self.app.menu.toggle([self.app.menu_active])
             self.app.menu_active = None
@@ -50,7 +51,7 @@ class Form(object):
 
         return False
 
-    def generate(self, form_config):
+    def generate(self, form_config, data={}):
         if type(form_config)==str :
             config = Yaml().load(self.path_form+'/'+form_config+'.yaml')
         else:
@@ -99,8 +100,8 @@ class Form(object):
                         inputs[id].on_select = self.app.selection_select
 
 
-                if input.get('value'):
-                    inputs[id].value = input.get('value')
+                if data.get(id):
+                    inputs[id].value = data.get(id)
 
                 if input.get('readonly')==True:
                     inputs[id].readonly = True,
@@ -133,7 +134,7 @@ class Form(object):
                 
                 boxButton.add(buttons[id])
             
-            if config.get('close'):
+            if self.popup:
                 boxButton.add(toga.Button(
                     text='Close',
                     on_press=self.close_modal
